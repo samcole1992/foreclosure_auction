@@ -1,0 +1,31 @@
+<div class="">
+
+
+  <%= form_for(@property) do |f| %>
+    <div class="field">
+        <%= f.label :address %><br/>
+        <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :purchase_price %><br/>
+      <%= f.text_field :purchase_price %>
+    </div>
+
+    <div class="field">
+      <%= f.label :selling_price %><br/>
+      <%= f.text_field :selling_price %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br/>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit(value="Submit") %>
+    </div>
+
+  <% end %>
+
+</div>

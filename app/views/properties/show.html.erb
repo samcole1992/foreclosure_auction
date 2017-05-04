@@ -1,0 +1,34 @@
+
+  <div class="">
+
+    <% if @property.sold? %>
+      <h3>SOLD</h3>
+
+    <% end %>
+
+<br />
+<div class="">
+  <h1>address <%= @property.address %> </h1>
+
+    <div class="">
+      <p> purchase_price<%= @property.purchase_price %> </p>
+      <p> selling_price<%= @property.selling_price %> </p>
+    </div>
+
+    <div class="">
+      <% unless @property.description.nil? %>
+        <p> <%= @property.description %> </p>
+      <% end %>
+      <% unless @property.url.nil? %>
+        <p> <%= link_to "#{@property.url}", "#{@property.url}" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<% if @user.admin? %>
+  <div>
+    <%= link_to 'Edit Property', edit_bar_path(@property) %>
+  </div>
+<% end %>
