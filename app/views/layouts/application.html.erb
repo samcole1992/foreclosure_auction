@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BostonBarReview</title>
+    <title>Foreclosure Auction</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -10,7 +10,7 @@
   <div class="top-bar">
     <div class="top-bar-left">
       <div class="nav">
-        <p class="active"><a href="/bars">Foreclosure Auction</a></p>
+        <p class="active"><a href="/properties">Foreclosure Auction</a></p>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-    <div id="user-email">
+    <div id="">
       <% if user_signed_in? %>
         <%= link_to "View profile", user_path(current_user), :class => 'navbar-link' %> |
         <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
