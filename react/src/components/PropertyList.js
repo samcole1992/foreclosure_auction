@@ -5,15 +5,11 @@ class PropertyList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { properties: [] };
-    this.getProperties = this.getProperties.bind(this);
   }
 
-  componentDidMount(){
-    this.getProperties();
-    setInterval(this.getProperties, 1500);
-  }
 
-  getProperties() {
+
+  componentDidMount() {
     fetch('api/v1/properties',{
       credentials: "same-origin"
     }).then(response => {
