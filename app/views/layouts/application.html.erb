@@ -7,14 +7,14 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <div class="top-bar">
-    <div class="top-bar-left">
+  <div >
+    <div >
       <div class="nav">
         <p class="active"><a href="/properties">Foreclosure Auction</a></p>
       </div>
     </div>
 
-    <div class="top-bar-right">
+    <div >
       <form id="search-form" action="/searches" accept-charset="UTF-8" method="get">
         <ul class="menu">
           <li><input type="text" name="term" id="search-field" placeholder="Search"></li>
@@ -26,12 +26,23 @@
 
     <div id="">
       <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to "Manage Users", users_path, :class => 'navbar-link'  %> |
+        <%end%>
         <%= link_to "View profile", user_path(current_user), :class => 'navbar-link' %> |
         <%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Properties", properties_path, :class => 'navbar-link'  %> |
+        <%= link_to "About", about_path, :class => 'navbar-link'  %>  |
+        <%= link_to "Legal", legal_path, :class => 'navbar-link'  %>  |
+        <%= link_to "Contact", contact_path, :class => 'navbar-link'  %>  |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %> |
+        <%= link_to "Properties", properties_path, :class => 'navbar-link'  %>  |
+        <%= link_to "About", about_path, :class => 'navbar-link'  %>  |
+        <%= link_to "Legal", legal_path, :class => 'navbar-link'  %>  |
+        <%= link_to "Contact", contact_path, :class => 'navbar-link'  %>
       <% end %>
     </div>
 

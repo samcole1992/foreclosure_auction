@@ -1,0 +1,10 @@
+<div>
+      <h3>Matching Properties</h3>
+
+      <ul>
+            <% @properties.each do |property| %>
+              <li><%= link_to "#{property.address}", "/properties/#{property.id}" %></li>
+            <% end %>
+            </ul>
+
+    </div>

@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
   def index
-    if !current_user.admin?
+    @user = current_user
+
+    if !@user.admin?
       flash[:notice] = "You don't have permission to access this page!"
-      redirect_to bars_path
+      redirect_to @user
     end
     @users = User.all
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def destroy

@@ -1,12 +1,15 @@
+require 'pry'
 class PropertiesController < ApplicationController
+  before_action :authenticate_user!, only: ["show"]
 
   def index
+
+    @user = current_user
     @properties = Property.all
     @property = Property.new
   end
 
   def show
-
     @user = current_user
     @property = Property.find(params[:id])
 
@@ -39,7 +42,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
     @user = current_user
     if @property.update(property_params)
-      redirect_to @user
+      redirect_to properties_path
     else
       flash[:notice] = @property.errors.full_messages.to_sentence
       render :edit
@@ -52,7 +55,7 @@ class PropertiesController < ApplicationController
 
     if @user.admin?
       Property.destroy(params[:id])
-      redirect_to @user
+      redirect_to properties_path
 
     end
   end
@@ -60,7 +63,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:address, :purchase_price, :selling_price, :description, :sold)
+    params.require(:property).permit(:address, :purchase_price, :selling_price, :description, :sold, :inactive)
   end
 
 end

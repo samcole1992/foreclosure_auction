@@ -1,6 +1,6 @@
 <div class="">
 
-
+<% if @user && @user.admin?%>
   <%= form_for(@property) do |f| %>
     <div class="field">
         <%= f.label :address %><br/>
@@ -27,7 +27,7 @@
     </div>
 
   <% end %>
-
+<%end%>
 </div>
 <div>
   <div id="PropertyList"></div>

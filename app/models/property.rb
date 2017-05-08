@@ -6,7 +6,7 @@ class Property < ApplicationRecord
 
   def self.search(term)
     if term
-      where('LOWER (name) LIKE ?', "%#{term.downcase}%")
+      where('LOWER (address) LIKE ?', "%#{term.downcase}%")
     else
       all
     end

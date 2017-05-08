@@ -1,0 +1,18 @@
+<div class="">
+  <%= @user.email %>
+</div>
+<% if current_user.admin? %>
+
+  <div class="">
+    <%= link_to "Delete User", @user, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+
+  <%= form_for(@user) do |f| %>
+
+
+  <div class="actions">
+    <%= f.check_box :admin %>
+    <%= f.submit "Admin" %>
+  </div>
+<% end %>
+<% end %>

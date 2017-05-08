@@ -1,0 +1,43 @@
+<%= form_for(@property) do |f| %>
+  <div class="field">
+      <%= f.label :address %><br/>
+      <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :purchase_price %><br/>
+    <%= f.text_field :purchase_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :selling_price %><br/>
+    <%= f.text_field :selling_price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %><br/>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sold %>
+    <%= f.check_box :sold %>
+  </div>
+  <div class="field">
+    <%= f.label :inactive %>
+    <%= f.check_box :inactive %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit(value="Submit") %>
+  </div>
+
+  <%= link_to "Delete", @property, method: :delete, data: {confirm: "Are you sure?"} %>
+
+<% end %>

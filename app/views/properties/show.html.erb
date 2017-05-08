@@ -3,6 +3,8 @@
 
     <% if @property.sold? %>
       <h3>SOLD</h3>
+    <% elsif @property.inactive?%>
+
 
     <% end %>
 
@@ -27,8 +29,12 @@
 </div>
 
 
-<% if @user.admin? %>
+<% if @user && @user.admin? %>
   <div>
     <%= link_to 'Edit Property', edit_property_path(@property) %>
+  </div>
+  <div class="">
+    <%= link_to "Delete", @property, method: :delete, data: {confirm: "Are you sure?"} %>
+
   </div>
 <% end %>
